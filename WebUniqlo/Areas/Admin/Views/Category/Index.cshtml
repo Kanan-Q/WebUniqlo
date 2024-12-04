@@ -1,0 +1,40 @@
+﻿@model List<Category>
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Category</h6>
+        <a class="btn btn-primary" asp-controller="Category" asp-action="Create">Create</a>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th colspan="2">Action</th>
+                        <th>Hide-Show</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td><a class="btn btn-success" asp-controller="Category" asp-action="Update" asp-route-id="@item.Id">Edit</a></td>
+                            <td><a class="btn btn-danger" asp-controller="Category" asp-action="Delete" asp-route-id="@item.Id">Delete</a></td>
+                            @if (item.IsDeleted == false)
+                            {
+                                <td><a class="btn btn-warning" asp-controller="Category" asp-action="Hide" asp-route-id="@item.Id">Hide</a></td>
+                            }
+                            @if (item.IsDeleted == true)
+                            {
+
+                                <td><a class="btn btn-warning" asp-controller="Category" asp-action="Show" asp-route-id="@item.Id">Show</a></td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

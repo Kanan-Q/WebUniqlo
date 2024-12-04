@@ -1,0 +1,30 @@
+﻿@model Product
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="readmore" style="width:100%;">
+        <div style="margin:auto; display:block ; width:30%; padding:50px 0px;">
+
+            <img src="~/imgs/products/@Model.CoverFile">
+            <p class="text-success" style="text-align:center;">@Model.Name</p>
+            <p class="text-success" style="text-align:center;">@Model.Description</p>
+            @if (Model.Discount > 0)
+            {
+                var money = Math.Ceiling(Model.SellPrice - (Model.SellPrice * Model.Discount) / 100);
+                <p class="text-success" style="text-align:center;">@money Manat</p>
+            }
+            @if (Model.Discount == 0)
+            {
+                <p class="text-success" style="text-align:center;">@Model.SellPrice</p>
+            }
+
+        </div>
+    </div>
+</body>
+</html>

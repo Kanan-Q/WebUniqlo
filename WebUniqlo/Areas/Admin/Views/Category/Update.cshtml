@@ -1,0 +1,10 @@
+﻿@model CategoryUpdateVM
+
+<form enctype="multipart/form-data" method="post">
+    <div class="form-group">
+        <label asp-for="Name">Name</label>
+        <input class="form-control" asp-for="Name">
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

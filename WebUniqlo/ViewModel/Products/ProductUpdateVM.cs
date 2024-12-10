@@ -14,6 +14,6 @@ namespace WebUniqlo.ViewModel.Products
         public IFormFile CoverFile { get; set; }
         public IEnumerable<string>? OtherFileURLs { get; set; }
         public IEnumerable<IFormFile> OtherFiles { get; set; }
-        public int? CategortId { get; set; }
+        public int? CategoryId { get; set; }
     }
 }

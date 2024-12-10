@@ -15,5 +15,7 @@ namespace WebUniqlo.Models
         public int? CategoryId { get; set; }
         public Category? Category { get; set; }
         public IEnumerable<ProductImage>? ProductImages { get; set; }
+        public ICollection<Tag> Tags { get; set; }
+        public ICollection<ProductRating>? Ratings { get; set; }
     }
 }

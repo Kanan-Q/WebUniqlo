@@ -12,7 +12,7 @@ namespace WebUniqlo.ViewModel.Products
         public int Discount { get; set; }
         public IFormFile CoverFile { get; set; }
         public IEnumerable<IFormFile> OtherFiles { get; set; }
-        public int? CategortId { get; set; }
+        public int? CategoryId { get; set; }
         public Category? Category { get; set; }
     }
 }

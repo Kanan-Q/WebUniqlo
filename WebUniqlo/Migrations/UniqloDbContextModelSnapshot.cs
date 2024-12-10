@@ -155,7 +155,22 @@ namespace WebUniqlo.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Uniqlo.Models.Category", b =>
+            modelBuilder.Entity("ProductTag", b =>
+                {
+                    b.Property<int>("ProductsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TagsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductsId", "TagsId");
+
+                    b.HasIndex("TagsId");
+
+                    b.ToTable("ProductTag");
+                });
+
+            modelBuilder.Entity("WebUniqlo.Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -178,7 +193,7 @@ namespace WebUniqlo.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("Uniqlo.Models.Product", b =>
+            modelBuilder.Entity("WebUniqlo.Models.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -226,7 +241,7 @@ namespace WebUniqlo.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("Uniqlo.Models.ProductImage", b =>
+            modelBuilder.Entity("WebUniqlo.Models.ProductImage", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -251,10 +266,39 @@ namespace WebUniqlo.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Product~/Admin/images/");
+                    b.ToTable("ProductImages");
                 });
 
-            modelBuilder.Entity("Uniqlo.Models.Slider", b =>
+            modelBuilder.Entity("WebUniqlo.Models.ProductRating", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId1")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("UserId1");
+
+                    b.ToTable("ProductRatings");
+                });
+
+            modelBuilder.Entity("WebUniqlo.Models.Slider", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -288,7 +332,30 @@ namespace WebUniqlo.Migrations
                     b.ToTable("Sliders");
                 });
 
-            modelBuilder.Entity("Uniqlo.Models.User", b =>
+            modelBuilder.Entity("WebUniqlo.Models.Tag", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tags");
+                });
+
+            modelBuilder.Entity("WebUniqlo.Models.User", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -372,7 +439,7 @@ namespace WebUniqlo.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("Uniqlo.Models.User", null)
+                    b.HasOne("WebUniqlo.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -381,7 +448,7 @@ namespace WebUniqlo.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("Uniqlo.Models.User", null)
+                    b.HasOne("WebUniqlo.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -396,7 +463,7 @@ namespace WebUniqlo.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Uniqlo.Models.User", null)
+                    b.HasOne("WebUniqlo.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -405,26 +472,41 @@ namespace WebUniqlo.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("Uniqlo.Models.User", null)
+                    b.HasOne("WebUniqlo.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Uniqlo.Models.Product", b =>
+            modelBuilder.Entity("ProductTag", b =>
                 {
-                    b.HasOne("Uniqlo.Models.Category", "Category")
+                    b.HasOne("WebUniqlo.Models.Product", null)
+                        .WithMany()
+                        .HasForeignKey("ProductsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WebUniqlo.Models.Tag", null)
+                        .WithMany()
+                        .HasForeignKey("TagsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("WebUniqlo.Models.Product", b =>
+                {
+                    b.HasOne("WebUniqlo.Models.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId");
 
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("Uniqlo.Models.ProductImage", b =>
+            modelBuilder.Entity("WebUniqlo.Models.ProductImage", b =>
                 {
-                    b.HasOne("Uniqlo.Models.Product", "product")
-                        .WithMany("~/Admin/images/")
+                    b.HasOne("WebUniqlo.Models.Product", "product")
+                        .WithMany("ProductImages")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -432,14 +514,29 @@ namespace WebUniqlo.Migrations
                     b.Navigation("product");
                 });
 
-            modelBuilder.Entity("Uniqlo.Models.Category", b =>
+            modelBuilder.Entity("WebUniqlo.Models.ProductRating", b =>
+                {
+                    b.HasOne("WebUniqlo.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId");
+
+                    b.HasOne("WebUniqlo.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId1");
+
+                    b.Navigation("Product");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("WebUniqlo.Models.Category", b =>
                 {
                     b.Navigation("Products");
                 });
 
-            modelBuilder.Entity("Uniqlo.Models.Product", b =>
+            modelBuilder.Entity("WebUniqlo.Models.Product", b =>
                 {
-                    b.Navigation("~/Admin/images/");
+                    b.Navigation("ProductImages");
                 });
 #pragma warning restore 612, 618
         }

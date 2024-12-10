@@ -2,13 +2,15 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebUniqlo.DataAccess;
+using WebUniqlo.Enums;
 using WebUniqlo.Models;
 using WebUniqlo.ViewModel.Products;
 
 namespace WebUniqlo.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    //[Authorize]
+    //[Authorize(Roles = nameof(Roles.Admin))]
+
     public class ProductController(IWebHostEnvironment _env, UniqloDbContext _sql) : Controller
     {
         public async Task<IActionResult> Index()
@@ -52,7 +54,7 @@ namespace WebUniqlo.Areas.Admin.Controllers
                 Quantity = pm.Quantity,
                 CoverFile = fileName,
                 Discount = pm.Discount,
-                CategoryId = pm.CategortId,
+                CategoryId = pm.CategoryId,
             };
             await _sql.Products.AddAsync(product);
             await _sql.SaveChangesAsync();
@@ -103,13 +105,14 @@ namespace WebUniqlo.Areas.Admin.Controllers
             if (!id.HasValue) return BadRequest();
             var products = await _sql.Products.Where(x => x.Id == id.Value).Select(x => new ProductUpdateVM
             {
-                CategortId = x.CategoryId,
+                CategoryId = x.CategoryId,
                 Name = x.Name,
                 Description = x.Description,
                 SellPrice = x.SellPrice,
                 Quantity = x.Quantity,
                 CostPrice = x.CostPrice,
-                Discount = x.Discount
+                Discount = x.Discount,
+                CoverFileURL=x.CoverFile,
             }).FirstOrDefaultAsync();
             if (products is null) return BadRequest();
             return View(products);
@@ -126,7 +129,7 @@ namespace WebUniqlo.Areas.Admin.Controllers
                 {
                     ModelState.AddModelError("CoverFile", "Image deyil");
                 }
-                if (pm.CoverFile.Length > 2 * 1024 * 1024)
+                if (pm.CoverFile.Length < 5 * 1024 * 1024)
                 {
                     ModelState.AddModelError("CoverFile", "Image deyil");
                 }
@@ -154,7 +157,8 @@ namespace WebUniqlo.Areas.Admin.Controllers
             data.SellPrice = pm.SellPrice;
             data.Discount = pm.Discount;
             data.Quantity = pm.Quantity;
-            data.CategoryId = pm.CategortId;
+            data.CategoryId = pm.CategoryId;
+            data.CoverFile = pm.CoverFileURL;
 
             await _sql.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

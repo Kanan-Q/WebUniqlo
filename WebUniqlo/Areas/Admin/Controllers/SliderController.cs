@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebUniqlo.DataAccess;
+using WebUniqlo.Enums;
 using WebUniqlo.Models;
 using WebUniqlo.ViewModel.Products;
 using WebUniqlo.ViewModel.Sliders;
@@ -10,7 +11,8 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace Uniqlo.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    //[Authorize]
+    //[Authorize(Roles = nameof(Roles.Admin))]
+
 
     public class SliderController(UniqloDbContext _sql, IWebHostEnvironment _env) : Controller
     {
@@ -91,7 +93,6 @@ namespace Uniqlo.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Update(int? id)
         {
-            ViewBag.Categories = await _sql.Categories.Where(x => !x.IsDeleted).ToListAsync();
             if (!id.HasValue) return BadRequest();
             var sliders = await _sql.Sliders.Where(x => x.Id == id.Value).Select(x => new SliderUpdateVM
             {
@@ -119,11 +120,7 @@ namespace Uniqlo.Areas.Admin.Controllers
                     ModelState.AddModelError("CoverFile", "Image deyil");
                 }
             }
-            if (!ModelState.IsValid)
-            {
-                ViewBag.Categories = await _sql.Categories.Where(x => !x.IsDeleted).ToListAsync();
-                return View(pm);
-            }
+           
             var data = await _sql.Sliders.Where(x => x.Id == id.Value).FirstOrDefaultAsync();
             if (data is null) return BadRequest();
 
@@ -142,11 +139,7 @@ namespace Uniqlo.Areas.Admin.Controllers
 
             await _sql.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-
-
         }
-
-
     }
 }
 

@@ -10,7 +10,9 @@ namespace WebUniqlo.DataAccess
         public DbSet<Slider> Sliders {  get; set; }
         public DbSet<Product> Products {  get; set; }
         public DbSet<Category> Categories {  get; set; }
-        public DbSet<ProductImage> Product{  get; set; }
+        public DbSet<ProductImage> ProductImages {  get; set; }
+        public DbSet<Tag> Tags {  get; set; }
+        public DbSet<ProductRating> ProductRatings {  get; set; }
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
@@ -20,7 +22,7 @@ namespace WebUniqlo.DataAccess
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
-        //    optionsBuilder.UseSqlServer("Server=DESKTOP-IOJO115;Database=UniqloNewDB;Trusted_Connection=True;TrustServerCertificate=True");
+        //    optionsBuilder.UseSqlServer("Server=DESKTOP-IOJO115;Database=UniqloWebDB;Trusted_Connection=True;TrustServerCertificate=True");
         //    base.OnConfiguring(optionsBuilder);
         //}
         public UniqloDbContext(DbContextOptions opt) : base(opt) { }

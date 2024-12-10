@@ -4,6 +4,9 @@ using Microsoft.Extensions.Configuration;
 using WebUniqlo.DataAccess;
 using WebUniqlo.Models;
 using WebUniqlo.Extension;
+using WebUniqlo.Helper;
+using WebUniqlo.Services.Abstrations;
+using WebUniqlo.Services.Interfaces;
 
 namespace WebUniqlo
 {
@@ -22,13 +25,19 @@ namespace WebUniqlo
             builder.Services.AddIdentity<User, IdentityRole>(x =>
             {
                 //x.User.AllowedUserNameCharacters = "assa1234d";
-                x.Password.RequireNonAlphanumeric = true;
+                x.SignIn.RequireConfirmedEmail = true;
+                x.Password.RequireNonAlphanumeric = false;
                 x.Password.RequireDigit = true;
                 x.Password.RequireLowercase = true;
                 x.Password.RequireUppercase = true;
-                x.Lockout.MaxFailedAccessAttempts = 5;
+                x.Lockout.MaxFailedAccessAttempts = 20;
                 x.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
             }).AddDefaultTokenProviders().AddEntityFrameworkStores<UniqloDbContext>();
+
+            builder.Services.AddScoped<IEmailService, EmailService>();
+            var opt = new smtpOptions();
+            builder.Services.Configure<smtpOptions>(builder.Configuration.GetSection("smtp"));
+            builder.Services.Configure<smtpOptions>(builder.Configuration.GetSection(smtpOptions.Name));
 
             var app = builder.Build();
             // Configure the HTTP request pipeline.
@@ -43,7 +52,8 @@ namespace WebUniqlo
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-
+            app.UseUserSeed();
+            app.UseAuthorization();
             app.UseRouting();
 
             app.UseAuthorization();

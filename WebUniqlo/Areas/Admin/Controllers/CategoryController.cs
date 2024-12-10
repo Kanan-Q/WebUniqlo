@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebUniqlo.DataAccess;
+using WebUniqlo.Enums;
 using WebUniqlo.Models;
 using WebUniqlo.ViewModel.Categories;
 using WebUniqlo.ViewModel.Products;
@@ -9,7 +10,8 @@ using WebUniqlo.ViewModel.Products;
 namespace WebUniqlo.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    //[Authorize]
+    //[Authorize(Roles = nameof(Roles.Admin))]
+
 
     public class CategoryController(UniqloDbContext _sql) : Controller
     {

@@ -7,7 +7,7 @@ namespace WebUniqlo.Extension
 {
     public static class SeedExtension
     {
-        public static void UseUserSeed(this ApplicationBuilder app)
+        public static void UseUserSeed(this IApplicationBuilder app)
         {
             using (var scope = app.ApplicationServices.CreateScope())
             {
@@ -31,7 +31,7 @@ namespace WebUniqlo.Extension
                         Email = "admin@mail.ru",
                         ImageURL = "photo.jpg"
                     };
-                    UserManager.CreateAsync(u, "123").Wait();
+                    UserManager.CreateAsync(u, "" + "+Aa123***").Wait();
                     UserManager.AddToRoleAsync(u,nameof(Roles.Admin)).Wait();
                 }
             }

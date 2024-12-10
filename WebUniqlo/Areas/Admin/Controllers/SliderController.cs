@@ -115,7 +115,7 @@ namespace Uniqlo.Areas.Admin.Controllers
                 {
                     ModelState.AddModelError("CoverFile", "Image deyil");
                 }
-                if (pm.ImageUrl.Length < 2 * 1024 * 1024)
+                if (pm.ImageUrl.Length > 2 * 1024 * 1024)
                 {
                     ModelState.AddModelError("CoverFile", "Image deyil");
                 }
@@ -126,7 +126,7 @@ namespace Uniqlo.Areas.Admin.Controllers
 
             if (pm.ImageUrl != null)
             {
-                string oldName = Path.Combine(_env.WebRootPath, "imgs", "products", data.ImageUrl);
+                string oldName = Path.Combine(_env.WebRootPath, "imgs", "Slider", data.ImageUrl);
 
                 using (Stream s = System.IO.File.Create(oldName))
                 {

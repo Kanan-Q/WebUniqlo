@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3F0jfhaTa7UOeu8uU0LLxLow6PCYDJ/S+3eU8iRJsZo=",
+  "Hash": "RGFlIwtLdyawFLQ/1w3GA3E6piGQZEkoh1ZETMj/2xc=",
   "Source": "WebUniqlo",
   "BasePath": "_content/WebUniqlo",
   "Mode": "Default",
@@ -39535,6 +39535,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\imgs\\Slider\\onilik4b.kkp.webp"
+    },
+    {
+      "Identity": "C:\\Users\\kanan\\source\\repos\\WebUniqlo\\WebUniqlo\\wwwroot\\imgs\\Slider\\rgkpizgz.245.webp",
+      "SourceId": "WebUniqlo",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kanan\\source\\repos\\WebUniqlo\\WebUniqlo\\wwwroot\\",
+      "BasePath": "_content/WebUniqlo",
+      "RelativePath": "imgs/Slider/rgkpizgz.245.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imgs\\Slider\\rgkpizgz.245.webp"
     },
     {
       "Identity": "C:\\Users\\kanan\\source\\repos\\WebUniqlo\\WebUniqlo\\wwwroot\\imgs\\Slider\\sdsbgema.ve0.webp",

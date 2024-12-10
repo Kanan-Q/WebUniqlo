@@ -129,9 +129,9 @@ namespace WebUniqlo.Areas.Admin.Controllers
                 {
                     ModelState.AddModelError("CoverFile", "Image deyil");
                 }
-                if (pm.CoverFile.Length < 5 * 1024 * 1024)
+                if (pm.CoverFile.Length > 5 * 1024* 1024)
                 {
-                    ModelState.AddModelError("CoverFile", "Image deyil");
+                    ModelState.AddModelError("CoverFile", "maks 5mb");
                 }
             }
             if (!ModelState.IsValid)
@@ -158,7 +158,6 @@ namespace WebUniqlo.Areas.Admin.Controllers
             data.Discount = pm.Discount;
             data.Quantity = pm.Quantity;
             data.CategoryId = pm.CategoryId;
-            data.CoverFile = pm.CoverFileURL;
 
             await _sql.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

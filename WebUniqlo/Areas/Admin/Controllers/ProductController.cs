@@ -22,7 +22,6 @@ namespace WebUniqlo.Areas.Admin.Controllers
             ViewBag.Categories = await _sql.Categories.Where(x => !x.IsDeleted).ToListAsync();
             return View();
         }
-
         [HttpPost]
         public async Task<IActionResult> Create(ProductCreateVM pm)
         {
@@ -60,7 +59,6 @@ namespace WebUniqlo.Areas.Admin.Controllers
             await _sql.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
         public async Task<IActionResult> Delete(int? id)
         {
             if (!id.HasValue) return BadRequest();
@@ -71,7 +69,6 @@ namespace WebUniqlo.Areas.Admin.Controllers
             await _sql.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
         public async Task<IActionResult> Hide(int? id)
         {
             if (!id.HasValue) return BadRequest();

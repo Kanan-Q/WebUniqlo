@@ -10,7 +10,6 @@ using WebUniqlo.Models;
 using WebUniqlo.ViewModel.Common;
 using WebUniqlo.ViewModel.Products;
 using WebUniqlo.ViewModel.Sliders;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace Uniqlo.Controllers
 {
     public class HomeController(UniqloDbContext _sql) : Controller
@@ -53,7 +52,6 @@ namespace Uniqlo.Controllers
         {
             return View();
         }
-
         public IActionResult ReadMore(int? id)
         {
             if (!id.HasValue) return BadRequest();
@@ -67,8 +65,6 @@ namespace Uniqlo.Controllers
                 ViewBag.Rating = rating == 0 ? 5 : rating;
             }
             //var a=
-
-
             return View(data);
         }
 

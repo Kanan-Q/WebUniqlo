@@ -11,7 +11,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace Uniqlo.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    //[Authorize(Roles = nameof(Roles.Admin))]
+    [Authorize(Roles = nameof(Roles.Admin))]
 
 
     public class SliderController(UniqloDbContext _sql, IWebHostEnvironment _env) : Controller

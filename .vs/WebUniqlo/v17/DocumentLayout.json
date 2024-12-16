@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\kanan\\source\\repos\\WebUniqlo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B8B173A6-56F9-413F-89E6-02E05F26042D}|WebUniqlo\\WebUniqlo.csproj|c:\\users\\kanan\\source\\repos\\webuniqlo\\webuniqlo\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B8B173A6-56F9-413F-89E6-02E05F26042D}|WebUniqlo\\WebUniqlo.csproj|solutionrelative:webuniqlo\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B8B173A6-56F9-413F-89E6-02E05F26042D}|WebUniqlo\\WebUniqlo.csproj|c:\\users\\kanan\\source\\repos\\webuniqlo\\webuniqlo\\views\\shared\\_shoppartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B8B173A6-56F9-413F-89E6-02E05F26042D}|WebUniqlo\\WebUniqlo.csproj|solutionrelative:webuniqlo\\views\\shared\\_shoppartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8B173A6-56F9-413F-89E6-02E05F26042D}|WebUniqlo\\WebUniqlo.csproj|c:\\users\\kanan\\source\\repos\\webuniqlo\\webuniqlo\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B8B173A6-56F9-413F-89E6-02E05F26042D}|WebUniqlo\\WebUniqlo.csproj|solutionrelative:webuniqlo\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B8B173A6-56F9-413F-89E6-02E05F26042D}|WebUniqlo\\WebUniqlo.csproj|c:\\users\\kanan\\source\\repos\\webuniqlo\\webuniqlo\\views\\products\\shop.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B8B173A6-56F9-413F-89E6-02E05F26042D}|WebUniqlo\\WebUniqlo.csproj|solutionrelative:webuniqlo\\views\\products\\shop.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8B173A6-56F9-413F-89E6-02E05F26042D}|WebUniqlo\\WebUniqlo.csproj|c:\\users\\kanan\\source\\repos\\webuniqlo\\webuniqlo\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8B173A6-56F9-413F-89E6-02E05F26042D}|WebUniqlo\\WebUniqlo.csproj|solutionrelative:webuniqlo\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8B173A6-56F9-413F-89E6-02E05F26042D}|WebUniqlo\\WebUniqlo.csproj|c:\\users\\kanan\\source\\repos\\webuniqlo\\webuniqlo\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B8B173A6-56F9-413F-89E6-02E05F26042D}|WebUniqlo\\WebUniqlo.csproj|solutionrelative:webuniqlo\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8B173A6-56F9-413F-89E6-02E05F26042D}|WebUniqlo\\WebUniqlo.csproj|c:\\users\\kanan\\source\\repos\\webuniqlo\\webuniqlo\\views\\products\\readmore.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B8B173A6-56F9-413F-89E6-02E05F26042D}|WebUniqlo\\WebUniqlo.csproj|solutionrelative:webuniqlo\\views\\products\\readmore.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,28 +46,67 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\kanan\\source\\repos\\WebUniqlo\\WebUniqlo\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "WebUniqlo\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\kanan\\source\\repos\\WebUniqlo\\WebUniqlo\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "WebUniqlo\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAAAAwBAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-16T18:57:13.391Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\kanan\\source\\repos\\WebUniqlo\\WebUniqlo\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "WebUniqlo\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\kanan\\source\\repos\\WebUniqlo\\WebUniqlo\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "WebUniqlo\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T18:37:08.202Z",
+              "Title": "_ShopPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\kanan\\source\\repos\\WebUniqlo\\WebUniqlo\\Views\\Shared\\_ShopPartial.cshtml",
+              "RelativeDocumentMoniker": "WebUniqlo\\Views\\Shared\\_ShopPartial.cshtml",
+              "ToolTip": "C:\\Users\\kanan\\source\\repos\\WebUniqlo\\WebUniqlo\\Views\\Shared\\_ShopPartial.cshtml",
+              "RelativeToolTip": "WebUniqlo\\Views\\Shared\\_ShopPartial.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-16T18:42:14.219Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\kanan\\source\\repos\\WebUniqlo\\WebUniqlo\\Models\\User.cs",
-              "RelativeDocumentMoniker": "WebUniqlo\\Models\\User.cs",
-              "ToolTip": "C:\\Users\\kanan\\source\\repos\\WebUniqlo\\WebUniqlo\\Models\\User.cs",
-              "RelativeToolTip": "WebUniqlo\\Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Title": "Shop.cshtml",
+              "DocumentMoniker": "C:\\Users\\kanan\\source\\repos\\WebUniqlo\\WebUniqlo\\Views\\Products\\Shop.cshtml",
+              "RelativeDocumentMoniker": "WebUniqlo\\Views\\Products\\Shop.cshtml",
+              "ToolTip": "C:\\Users\\kanan\\source\\repos\\WebUniqlo\\WebUniqlo\\Views\\Products\\Shop.cshtml",
+              "RelativeToolTip": "WebUniqlo\\Views\\Products\\Shop.cshtml",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAAAJMAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-16T18:15:58.235Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "C:\\Users\\kanan\\source\\repos\\WebUniqlo\\WebUniqlo\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "WebUniqlo\\Controllers\\ProductsController.cs",
+              "ToolTip": "C:\\Users\\kanan\\source\\repos\\WebUniqlo\\WebUniqlo\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "WebUniqlo\\Controllers\\ProductsController.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAQwDQAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T18:32:50.156Z",
+              "WhenOpened": "2024-12-16T15:23:06.535Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ReadMore.cshtml",
+              "DocumentMoniker": "C:\\Users\\kanan\\source\\repos\\WebUniqlo\\WebUniqlo\\Views\\Products\\ReadMore.cshtml",
+              "RelativeDocumentMoniker": "WebUniqlo\\Views\\Products\\ReadMore.cshtml",
+              "ToolTip": "C:\\Users\\kanan\\source\\repos\\WebUniqlo\\WebUniqlo\\Views\\Products\\ReadMore.cshtml",
+              "RelativeToolTip": "WebUniqlo\\Views\\Products\\ReadMore.cshtml",
+              "ViewState": "AgIAALEAAAAAAAAAAAAAAAAAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-16T15:16:42.119Z",
               "EditorCaption": ""
             }
           ]

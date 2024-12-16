@@ -13,8 +13,9 @@ using System.Linq;
 using System.Text;
 using System.Net;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
+using WebUniqlo.Services.Interfaces;
 
-namespace Uniqlo.Controllers
+namespace WebUniqlo.Controllers
 {
     public class AccountController(UserManager<User> _u, SignInManager<User> _sign, IOptions<smtpOptions> _opt, IEmailService _service) : Controller
     {
@@ -110,7 +111,7 @@ namespace Uniqlo.Controllers
             {
                 if (await _u.IsInRoleAsync(user, "Admin"))
                 {
-                    return RedirectToAction("Index", new { Controller = "Dashboard", Area = "Admin" });
+                    return RedirectToAction("Index", new { Controller = "Product", Area = "Admin" });
                 }
                 return RedirectToAction("Index", "Home");
 
@@ -118,9 +119,7 @@ namespace Uniqlo.Controllers
             return LocalRedirect(ReturnUrl);
         }
 
-
-        //[Authorize]
-
+        [Authorize]
         public async Task<IActionResult> LogOut()
         {
             await _sign.SignOutAsync();
@@ -205,10 +204,16 @@ namespace Uniqlo.Controllers
             _service.SendEmailConfirmation(user.Email, user.UserName, token);
             return Content("Link sent your email");
         }
+
         [HttpGet]
         public async Task<IActionResult> ResetPassword(string token, string email)
         {
             if (email is null) return BadRequest();
+            if (string.IsNullOrEmpty(token) || string.IsNullOrEmpty(email))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+                                                                            
             var model = new ResetPasswordVM { Token = token, Email = email };
             return View(model);
         }
@@ -218,7 +223,7 @@ namespace Uniqlo.Controllers
             if (!ModelState.IsValid) return View(rm);
 
             var user = await _u.FindByEmailAsync(rm.Email);
-            if (user == null)
+            if (user is null)
             {
                 ModelState.AddModelError("", "Invalid email.");
                 return View();

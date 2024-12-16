@@ -9,7 +9,7 @@ using WebUniqlo.ViewModel.Products;
 namespace WebUniqlo.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    //[Authorize(Roles = nameof(Roles.Admin))]
+    [Authorize(Roles = nameof(Roles.Admin))]
 
     public class ProductController(IWebHostEnvironment _env, UniqloDbContext _sql) : Controller
     {

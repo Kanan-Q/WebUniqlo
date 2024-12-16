@@ -691,13 +691,12 @@
 
 
 .offsetmenu,
-.shopping__cart, 
 .user__meta  {
   background: #eeeeee none repeat scroll 0 0;
   box-shadow: 0 0 85px rgba(0, 0, 0, 0.2);
-  display: block;
+  /*display: block;*/
   height: 100vh;
-  opacity: 0;
+  opacity: 1;
   overflow-y: scroll;
   position: fixed;
   right: -100%;
@@ -708,9 +707,29 @@
   width: 475px;
 
 }
-.user__meta .htc__login__register {
-  padding-top: 30px;
+
+.shopping__cart {
+    background: #eeeeee none repeat scroll 0 0;
+    box-shadow: 0 0 85px rgba(0, 0, 0, 0.2);
+    height: 100vh;
+    overflow-y: scroll;
+    position: fixed;
+    right: 0%;
+    top: 0;
+    transition: all 0.25s ease 0s;
+    width: 100%;
+    z-index: 99999;
+    width: 475px;
 }
+.active{
+    display:block;
+}
+.deactive{
+    display:none;
+}
+    .user__meta .htc__login__register {
+        padding-top: 30px;
+    }
 .offsetmenu.offsetmenu__on,
 .shopping__cart.shopping__cart__on,
 .user__meta.user__meta__on {

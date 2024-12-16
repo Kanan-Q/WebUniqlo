@@ -193,6 +193,40 @@ namespace WebUniqlo.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("WebUniqlo.Models.Comment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Comments");
+                });
+
             modelBuilder.Entity("WebUniqlo.Models.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -283,17 +317,14 @@ namespace WebUniqlo.Migrations
                     b.Property<int>("Rating")
                         .HasColumnType("int");
 
-                    b.Property<int?>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId1")
+                    b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ProductId");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("ProductRatings");
                 });
@@ -494,6 +525,25 @@ namespace WebUniqlo.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("WebUniqlo.Models.Comment", b =>
+                {
+                    b.HasOne("WebUniqlo.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WebUniqlo.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("WebUniqlo.Models.Product", b =>
                 {
                     b.HasOne("WebUniqlo.Models.Category", "Category")
@@ -517,12 +567,12 @@ namespace WebUniqlo.Migrations
             modelBuilder.Entity("WebUniqlo.Models.ProductRating", b =>
                 {
                     b.HasOne("WebUniqlo.Models.Product", "Product")
-                        .WithMany()
+                        .WithMany("Ratings")
                         .HasForeignKey("ProductId");
 
                     b.HasOne("WebUniqlo.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId1");
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Product");
 
@@ -537,6 +587,8 @@ namespace WebUniqlo.Migrations
             modelBuilder.Entity("WebUniqlo.Models.Product", b =>
                 {
                     b.Navigation("ProductImages");
+
+                    b.Navigation("Ratings");
                 });
 #pragma warning restore 612, 618
         }

@@ -13,6 +13,8 @@ namespace WebUniqlo.DataAccess
         public DbSet<ProductImage> ProductImages {  get; set; }
         public DbSet<Tag> Tags {  get; set; }
         public DbSet<ProductRating> ProductRatings {  get; set; }
+        public DbSet<Comment> Comments {  get; set; }
+
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{

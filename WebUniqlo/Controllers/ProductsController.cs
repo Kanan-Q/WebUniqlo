@@ -69,7 +69,7 @@ namespace WebUniqlo.Controllers
                 ImageURL = x.CoverFile,
             }).ToListAsync();
 
-            return PartialView("_ShopPartial",data);
+            return PartialView("_ShopPartial", data);
         }
 
         public async Task<IActionResult> ReadMore(int? id)
@@ -159,10 +159,8 @@ namespace WebUniqlo.Controllers
             {
                 item = new BasketAddVm(id);
             }
-            else
-            {
-                item.Count++;
-            }
+            item.Count++;
+
             Response.Cookies.Append("basket", JsonSerializer.Serialize(BasketItems));
 
             return Ok();

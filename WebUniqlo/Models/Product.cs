@@ -17,5 +17,6 @@ namespace WebUniqlo.Models
         public IEnumerable<ProductImage>? ProductImages { get; set; }
         public ICollection<Tag> Tags { get; set; }
         public ICollection<ProductRating>? Ratings { get; set; }
+        public ICollection<Comment>? Comments { get; set; }
     }
 }

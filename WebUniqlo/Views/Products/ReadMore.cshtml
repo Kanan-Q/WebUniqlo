@@ -1,4 +1,5 @@
-﻿@model Product;
+﻿@using WebUniqlo.Models;
+@model Product;
 
 @{
     var rating = Model.Ratings.Count > 0 ? Model.Ratings.Average(x => x.Rating) : 0;
@@ -201,7 +202,7 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <form asp-action="Rating" asp-controller="Products" method="get">
-                            <input type="hidden" name="ProdcutId" value="@Model.Id" />
+                            <input type="hidden" name="ProductId" value="@Model.Id" />
                             <input name="rating" value="@ViewBag.Rating" type="number" min="1" max="5" />
                             <button class="btn btn-link">Rate!</button>
                         </form>
@@ -341,7 +342,7 @@
                     <div role="tabpanel" id="reviews" class="product__tab__content">
                         <div class="review__address__inner">
                             <!-- Start Single Review -->
-                           @*  @foreach (var item in Model.Comment ?? [])
+                            @foreach (var item in Model.Comments ?? [])
                             {
                                 <div class="pro__review">
                                     <div class="review__thumb">
@@ -349,23 +350,22 @@
                                     </div>
                                     <div class="review__details">
                                         <div class="review__info">
-                                            <h4><a href="#">@item.FullName</a></h4>
                               
                                             @if (item.User.UserName == User.Identity.Name)
                                             {
                                                 <div class="rating__send">
-                                                    <a asp-action="RemoveComment" asp-controller="Product" asp-route-id="@item.Id"><i class="zmdi zmdi-close"></i></a>
+                                                    <a asp-action="RemoveComment" asp-controller="Products" asp-route-id="@item.Id"><i class="zmdi zmdi-close"></i></a>
                                                 </div>
                                             }
                                         </div>
                                         <div class="review__date">
                                             <span>@item.CreatedTime</span>
                                         </div>
-                                        <p>@item.Content</p>
+                                        <p>@item.Description</p>
                                     </div>
                                 </div>
                                 <!-- End Single Review -->
-                            } *@
+                            }
                             <!-- End Single Review -->
                             <!-- Start Single Review -->
                             <div class="pro__review ans">

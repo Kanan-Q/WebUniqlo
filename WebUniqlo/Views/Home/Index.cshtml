@@ -1,5 +1,4 @@
-﻿
-@model WebUniqlo.ViewModel.Common.HomeVM
+﻿@model WebUniqlo.ViewModel.Common.HomeVM
 <div class="slider__container slider--one">
     @foreach (var item in Model.Sliders)
     {
@@ -55,7 +54,7 @@
                                 </div>
                                 <div class="product__hover__info">
                                     <ul class="product__action">
-                                        <li class="add-cart"><a title="Add TO Cart" asp-controller="Products" asp-action="AddBasket" asp-route-id="@item.Id"><span class="ti-shopping-cart"></span></a></li>
+                                        <li prod-id="@item.Id" class="add-cart"><span class="ti-shopping-cart"></span></li>
                                     </ul>
                                 </div>
                                 <div class="add__to__wishlist">
@@ -83,21 +82,19 @@
                     </div>
                     <!-- End Single Product -->
                 }
-                </div>
-                <!-- End Single Product -->
             </div>
+            <!-- End Single Product -->
         </div>
     </div>
-</section> 
+    </div>
+</section>
 
-@section scripts{
+@section scripts {
     <script>
-        $(".add-cart").click(function (){
-            fetch('/Product/AddBasket/'+$(this).attr('prod-id'))
+        $('.add-cart').click(function () {
+            fetch('Products/AddBasket/' + $(this).attr('prod-id'))
                 .then(x => {
-                    if (x.ok) {
-                        alert('Elave olundu')
-                    }
+                    alert('Elave olundu')
                 })
         })
     </script>

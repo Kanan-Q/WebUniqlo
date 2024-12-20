@@ -132,9 +132,9 @@ namespace WebUniqlo.Controllers
         //    s.Port = 587;
         //    s.Host = "smtp.@gmail.com";
         //    s.EnableSsl = true;
-        //    s.Credentials = new NetworkCredential("kananag-bp215@code.edu.az", "ddedwddw");
-        //    MailAddress from = new MailAddress("kananag-bp215@code.edu.az", "Admin");
-        //    MailAddress to = new MailAddress("kananqurbanov244@gmail.com");
+        //    s.Credentials = new NetworkCredential("z", "ddedwddw");
+        //    MailAddress from = new MailAddress("az", "Admin");
+        //    MailAddress to = new MailAddress("com");
         //    MailMessage msg = new MailMessage(from, to);
         //    msg.Subject = "Security alert!";
         //    msg.Body = "<p>Change your password immediately!</p>";
@@ -148,7 +148,7 @@ namespace WebUniqlo.Controllers
         //s.EnableSsl = true;
         //s.Credentials = new NetworkCredential(smtp.Username, smtp.Password);
         //MailAddress from = new MailAddress(smtp.Username, "Admin");
-        //MailAddress to = new MailAddress("turan-bp215@code.edu.az");
+        //MailAddress to = new MailAddress("az");
         //MailMessage msg = new MailMessage(from, to);
         //msg.Subject = "Security alert!";
         //msg.Body = "<p>Change your password immediately!</p>";
